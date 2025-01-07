@@ -51,8 +51,8 @@ pipeline {
             GIT_USER_NAME = "abhidevops03"
         }
         steps {
-            #withCredentials([string(credentialsId: 'jenkins-ssh-key', variable: 'GITHUB_TOKEN')]) 
-		{
+             
+		
                 sh '''
                     git config user.email "abhi.xyz@gmail.com"
                     git config user.name "Abhi"
@@ -62,7 +62,7 @@ pipeline {
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
-            }
+            
         }
     }
   }
